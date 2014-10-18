@@ -17,9 +17,9 @@ nodeNxt.connect ('/dev/cu.wonderbot-DevB', function (nxt) {
 
     myMyo.on('fingers_spread', function(edge){
         console.log("Spread");
-        nxt.OutputSetSpeed (3, 32, 200);
-        nxt.OutputSetSpeed (2, 32, 200);
-        nxt.OutputSetSpeed (1, 32, 200);
+        nxt.OutputSetSpeed (3, 32, 400);
+        nxt.OutputSetSpeed (2, 32, -400);
+        nxt.OutputSetSpeed (1, 32, 400);
     });
 
 
@@ -38,7 +38,7 @@ nodeNxt.connect ('/dev/cu.wonderbot-DevB', function (nxt) {
     myMyo.on('thumb_to_pinky', function(edge){
         console.log("Out");
         nxt.OutputSetSpeed (3, 32, -200);
-        nxt.OutputSetSpeed (2, 32, -200);
+        nxt.OutputSetSpeed (2, 32, 200);
         nxt.OutputSetSpeed (1, 32, -200);
     });
     
