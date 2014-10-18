@@ -1,7 +1,7 @@
 var Myo = require('myo');
 var nodeNxt = require('node-nxt');
 
-nodeNxt.connect ('/dev/cu.wonderbot-DevB', function (nxt) {
+nodeNxt.connect ('/dev/tty.wonderbot-DevB', function (nxt) {
     console.log("NXT Connected");
     
     var myMyo = Myo.create();
