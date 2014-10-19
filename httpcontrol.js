@@ -48,5 +48,7 @@ nodeNxt.connect ('/dev/tty.wonderbot-DevB', function (nxt) {
 		        break;
 	    }
 	    
+
+	    res.end("Ended");
 	}).listen(8080);
 });
