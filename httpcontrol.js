@@ -8,7 +8,16 @@ nodeNxt.connect ('/dev/tty.wonderbot-DevB', function (nxt) {
 	var server = http.createServer( function(req, res) {
 	    var parsedReq = url.parse(req.url, true);
 	    console.log(parsedReq.query.Body);
-	    
+
+	    var words = parsedReq.query.Body.toLowerCase().split(" ");
+	    if (words[0] == "display") {
+	    	var str = parsedReq.query.Body.toLowerCase();
+	    	var n = str.length;
+	    	var toDisplay = str.substring(7, n);
+	    	nxt.DisplayText("                             ");
+	    	nxt.DisplayText(toDisplay);
+	    }
+
 	    switch (parsedReq.query.Body.toLowerCase()) {
 	        case 'halt' :
 		        nxt.OutputSetSpeed (3, 0, 0);
@@ -23,19 +32,19 @@ nodeNxt.connect ('/dev/tty.wonderbot-DevB', function (nxt) {
 		        break;
 
 		    case 'back' :
-		    	nxt.OutputSetSpeed (3, 32, -200);
-		        nxt.OutputSetSpeed (2, 32, 200);
-		        nxt.OutputSetSpeed (1, 32, -200);
+		    	nxt.OutputSetSpeed (3, 32, -400);
+		        nxt.OutputSetSpeed (2, 32, 400);
+		        nxt.OutputSetSpeed (1, 32, -400);
 		        break;
 
 		    case 'right' :
-		    	nxt.OutputSetSpeed (3, 32, 100);
-	        	nxt.OutputSetSpeed (1, 32, -100); 
+		    	nxt.OutputSetSpeed (3, 32, 400);
+	        	nxt.OutputSetSpeed (1, 32, -400); 
 	        	break;
 
 	        case 'left' :
-		        nxt.OutputSetSpeed (3, 32, -100);
-		        nxt.OutputSetSpeed (1, 32, 100);
+		        nxt.OutputSetSpeed (3, 32, -400);
+		        nxt.OutputSetSpeed (1, 32, 400);
 		        break;
 	    }
 	    
